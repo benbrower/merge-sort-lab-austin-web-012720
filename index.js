@@ -16,3 +16,18 @@ function merge(arr0, arr1) {
   }
   return sorted.concat(arr0).concat(arr1);
 }
+
+//mergeSort algorithim using merge and findMinAndRemove
+function mergeSort(arr) {
+  let mid = arr.length / 2;
+  let firstHalf = arr.slice(0, mid);
+  let secondHalf = arr.slice(mid, arr.length);
+  let sorted;
+
+  if (arr.length < 2) {
+    return arr;
+  } else {
+    sorted = merge(mergeSort(firstHalf), mergeSort(secondHalf));
+  }
+  return sorted;
+}
