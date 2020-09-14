@@ -1,30 +1,36 @@
-//find and remove minumum in a sorted array
-function findMinAndRemoveSorted(array) {
-  return array.shift();
+function findMinAndRemoveSorted(arr) {
+  return arr.shift();
+  // let min = arr[0];
+  // let index = 0;
+  // for (let i = 0; i < arr.length; i++){
+  //   if (arr[i] < min){
+  //     min = arr[i];
+  //     index = i;
+  //   }
+  // }
+  // arr.splice(index, 1);
+  // return min;
 }
 
-//merge two sorted sub arrays into a single array
-function merge(arr0, arr1) {
+function merge(firstHalf, secondHalf) {
   let sorted = [];
-
-  while (arr0.length != 0 && arr1.length != 0) {
-    if (arr0[0] < arr1[0]) {
-      sorted.push(findMinAndRemoveSorted(arr0));
+  while (firstHalf.length != 0 && secondHalf.length != 0){
+    if(firstHalf[0] < secondHalf[0]){
+      sorted.push(findMinAndRemoveSorted(firstHalf))
     } else {
-      sorted.push(findMinAndRemoveSorted(arr1));
+      sorted.push(findMinAndRemoveSorted(secondHalf))
     }
   }
-  return sorted.concat(arr0).concat(arr1);
+  return sorted.concat(firstHalf).concat(secondHalf);
 }
 
-//mergeSort algorithim using merge and findMinAndRemove
-function mergeSort(arr) {
-  let mid = arr.length / 2;
-  let firstHalf = arr.slice(0, mid);
-  let secondHalf = arr.slice(mid, arr.length);
-  let sorted;
+function mergeSort(arr){
+  let sorted = [];
+  let midPoint = arr.length /2;
+  let firstHalf = arr.slice(0, midPoint);
+  let secondHalf = arr.slice(midPoint, arr.length);
 
-  if (arr.length < 2) {
+  if (arr.length < 2){
     return arr;
   } else {
     sorted = merge(mergeSort(firstHalf), mergeSort(secondHalf));
