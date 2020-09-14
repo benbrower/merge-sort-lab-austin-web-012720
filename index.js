@@ -1,15 +1,15 @@
 function findMinAndRemoveSorted(arr) {
-  let min = arr[0];
-  let index = 0;
-  for (let i = 0; i < arr.length; i++){
-    if (arr[i] < min){
-      min = arr[i];
-      index = i;
-    }
-  }
-  arr.splice(index, 1);
-  return min;
-  // return arr.shift();
+  return arr.shift();
+  // let min = arr[0];
+  // let index = 0;
+  // for (let i = 0; i < arr.length; i++){
+  //   if (arr[i] < min){
+  //     min = arr[i];
+  //     index = i;
+  //   }
+  // }
+  // arr.splice(index, 1);
+  // return min;
 }
 
 function merge(firstHalf, secondHalf) {
@@ -28,7 +28,7 @@ function mergeSort(arr){
   let sorted = [];
   let midPoint = arr.length /2;
   let firstHalf = arr.slice(0, midPoint);
-  let secondHalf = arr.slice(midPoint, arr.length);
+  let secondHalf = arr.slice(midPoint, arr.length - 1);
 
   if (arr.length < 2){
     return arr;
