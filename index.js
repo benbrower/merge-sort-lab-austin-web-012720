@@ -2,7 +2,7 @@ function findMinAndRemoveSorted(arr) {
 
 }
 
-function merge() {
+function merge(firstHalf, secondHalf) {
 
 }
 
