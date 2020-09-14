@@ -28,7 +28,7 @@ function mergeSort(arr){
   let sorted = [];
   let midPoint = arr.length /2;
   let firstHalf = arr.slice(1, midPoint);
-  let secondHalf = arr.slice(midPoint, arr.length - 1);
+  let secondHalf = arr.slice(midPoint, arr.length);
 
   if (arr.length < 2){
     return arr;
