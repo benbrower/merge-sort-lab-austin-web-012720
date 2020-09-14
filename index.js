@@ -1,39 +1,69 @@
-function findMinAndRemoveSorted(arr) {
-  // let min = arr[0];
-  // let index = 0;
-  // for (let i = 0; i < arr.length; i++){
-  //   if (arr[i] < min){
-  //     min = arr[i];
-  //     index = i;
-  //   }
-  // }
-  // arr.splice(index, 1);
-  // return min;
-  return arr.shift();
+// function findMinAndRemoveSorted(arr) {
+//   // let min = arr[0];
+//   // let index = 0;
+//   // for (let i = 0; i < arr.length; i++){
+//   //   if (arr[i] < min){
+//   //     min = arr[i];
+//   //     index = i;
+//   //   }
+//   // }
+//   // arr.splice(index, 1);
+//   // return min;
+//   return arr.shift();
+// }
+//
+// function merge(firstHalf, secondHalf) {
+//   let sorted = [];
+//   while (firstHalf.length > 0 && secondHalf.length > 0){
+//     if(firstHalf[0] < secondHalf[0]){
+//       sorted.push(findMinAndRemoveSorted(firstHalf))
+//     } else {
+//       sorted.push(findMinAndRemoveSorted(secondHalf))
+//     }
+//   }
+//   return sorted.concat(firstHalf).concat(secondHalf);
+// }
+//
+// function mergeSort(arr){
+//   let sorted = [];
+//   let midPoint = arr.length /2;
+//   let firstHalf = arr.slice(1, midPoint);
+//   let secondHalf = arr.slice(midPoint, arr.length - 1);
+//
+//   if (arr.length < 2){
+//     return arr;
+//   } else {
+//     sorted = merge(mergeSort(firstHalf), mergeSort(secondHalf));
+//   }
+//   return sorted;
+// }
+
+function findMinAndRemoveSorted(array){
+  return array.shift()
 }
 
-function merge(firstHalf, secondHalf) {
-  let sorted = [];
-  while (firstHalf.length > 0 && secondHalf.length > 0){
-    if(firstHalf[0] < secondHalf[0]){
-      sorted.push(findMinAndRemoveSorted(firstHalf))
+function merge(firstSubarray, secondSubArray){
+  let sorted = []
+  while(firstSubarray.length != 0 && secondSubArray.length != 0){
+    if(firstSubarray[0] < secondSubArray[0]){
+      sorted.push(findMinAndRemoveSorted(firstSubarray))
     } else {
-      sorted.push(findMinAndRemoveSorted(secondHalf))
+      sorted.push(findMinAndRemoveSorted(secondSubArray))
     }
   }
-  return sorted.concat(firstHalf).concat(secondHalf);
+  return sorted.concat(firstSubarray).concat(secondSubArray)
 }
 
-function mergeSort(arr){
-  let sorted = [];
-  let midPoint = arr.length /2;
-  let firstHalf = arr.slice(1, midPoint);
-  let secondHalf = arr.slice(midPoint, arr.length - 1);
+function mergeSort(array){
+  let midpoint = array.length/2
+  let firstHalf = array.slice(0, midpoint)
+  let secondHalf = array.slice(midpoint, array.length)
+  let sorted;
 
-  if (arr.length < 2){
-    return arr;
+  if(array.length < 2){
+    return array
   } else {
-    sorted = merge(mergeSort(firstHalf), mergeSort(secondHalf));
+    sorted = merge(mergeSort(firstHalf), mergeSort(secondHalf))
   }
-  return sorted;
+  return sorted
 }
