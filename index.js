@@ -30,8 +30,8 @@ function mergeSort(arr){
   let secondHalf = arr.slice(midPoint, arr.length - 1);
 
   if (arr.length < 2){
-    return arr
+    return arr;
   } else {
-    return merge(mergeSort(firstHalf), mergeSort(secondHalf))
+    return merge(mergeSort(firstHalf), mergeSort(secondHalf));
   }
 }
