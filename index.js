@@ -12,7 +12,9 @@ function findMinAndRemoveSorted(arr) {
 }
 
 function merge(firstHalf, secondHalf) {
-
+  while (firstHalf.length > 0 && secondHalf.length > 0){
+    findMinAndRemoveSorted(firstHalf[0], secondHalf[0])
+  }
 }
 
 function mergeSort(arr){
