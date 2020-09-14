@@ -30,13 +30,10 @@ function mergeSort(arr){
   let firstHalf = arr.slice(1, midPoint);
   let secondHalf = arr.slice(midPoint, arr.length - 1);
 
-  console.log(firstHalf);
-  console.log(secondHalf);
   if (arr.length < 2){
     return arr;
   } else {
     sorted = merge(mergeSort(firstHalf), mergeSort(secondHalf));
   }
-  console.log(sorted);
   return sorted;
 }
