@@ -1,6 +1,6 @@
 //find and remove minumum in a sorted array
 function findMinAndRemoveSorted(array) {
-  return array.shift();
+  return array.shift(); // remove first (smallest) element
 }
 
 //merge two sorted sub arrays into a single array
