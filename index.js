@@ -5,7 +5,7 @@ function findMinAndRemoveSorted(array) {
 
 //merge two sorted sub arrays into a single array
 function merge(arr0, arr1) {
-  let sorted = [];
+  let sorted = []; //array to be returned
 
   while (arr0.length != 0 && arr1.length != 0) {
     if (arr0[0] < arr1[0]) {
@@ -14,7 +14,7 @@ function merge(arr0, arr1) {
       sorted.push(findMinAndRemoveSorted(arr1));
     }
   }
-  return sorted.concat(arr0).concat(arr1);
+  return sorted.concat(arr0).concat(arr1); // concat and return the two arrays
 }
 
 //mergeSort algorithim using merge and findMinAndRemove
